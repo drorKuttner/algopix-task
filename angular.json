@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "avanan-task": {
+    "algopix": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/avanan-task",
+            "outputPath": "dist/algopix",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "avanan-task:build"
+            "browserTarget": "algopix:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "avanan-task:build:production"
+              "browserTarget": "algopix:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "avanan-task:build"
+            "browserTarget": "algopix:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "avanan-task:serve"
+            "devServerTarget": "algopix:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "avanan-task:serve:production"
+              "devServerTarget": "algopix:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "avanan-task"
+  "defaultProject": "algopix"
 }

@@ -10,6 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {BarChartModule} from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule,
+    BarChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,45 +1,48 @@
 <div class="root">
-  <h2>Avanan Task</h2>
+  <h2>Algopix Task</h2>
 
-  <mat-form-field>
-    <mat-label>Enter Symbols</mat-label>
-    <input matInput [formControl]="searchForm">
-  </mat-form-field>
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 
+  <div *ngIf="!isLoading; else spinner" class="charts">
 
-  <table mat-table [dataSource]="stocks" matSort>
+   <h3>Weather in {{city?.name}}</h3>
 
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-      <td mat-cell *matCellDef="let row"> {{row.symbol}} </td>
-    </ng-container>
+    <div>
+      <h4>Temperature</h4>
 
-    <ng-container matColumnDef="size">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Size </th>
-      <td mat-cell *matCellDef="let row"> {{row.size}} </td>
-    </ng-container>
+      <ngx-charts-bar-vertical
+        [results]="temperatureChartData"
+        [gradient]="false"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        xAxisLabel="Date"
+        yAxisLabel="Temp °C"
+        [view]="[500, 300]"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
 
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-      <td mat-cell *matCellDef="let row"> {{row.price}} </td>
-    </ng-container>
+    <div>
+        <h4>Humidity</h4>
 
-    <ng-container matColumnDef="time">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
-      <td mat-cell *matCellDef="let row"> {{row.time | date:'MM/dd/yyyy hh:mm:ss'}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef></th>
-
-      <td mat-cell *matCellDef="let stock">
-        <mat-icon (click)="deleteStock(stock)">delete</mat-icon>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-
+        <ngx-charts-bar-vertical
+        [results]="humidityChartData"
+        [gradient]="false"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        xAxisLabel="Date"
+        yAxisLabel="Humidity %"
+        [view]="[500, 300]"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
 </div>
